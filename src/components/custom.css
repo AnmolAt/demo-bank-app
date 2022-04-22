@@ -1,0 +1,9 @@
+
+.table {
+    width: 100%;
+    font-style: "Roboto, system-ui";
+}
+
+.fav-icon {
+    cursor: pointer;
+}
