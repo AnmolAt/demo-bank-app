@@ -5,7 +5,7 @@ import logo_groww from "../logo-groww.svg";
 import "./Home.css";
 import AllBanks from "./AllBanks";
 import Favorites from "./Favorites";
-import { Typography, Menu, Button, MenuItem } from '@mui/material';
+import { Menu, Button, MenuItem } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { ReactComponent as Search } from '../search.svg';
 import { ReactComponent as Close } from '../cancel-icon.svg';
@@ -25,19 +25,17 @@ const Home = () => {
     if (selectedCity) {
       setLoading(true)
       fetch(`https://vast-shore-74260.herokuapp.com/banks?city=${selectedCity}`, {
-        method: "GET"
+        method: "GET",
       }).then(
         res => res.json()
       ).then(
         response => {
-          console.log("response", response)
           setLoading(false)
           setBanks(response)
           setFilteredBanks(response)
         }
       )
     }
-    console.log('favoriteBanks....', favoriteBanks)
   }, [selectedCity])
 
   useEffect(() => {
@@ -110,10 +108,10 @@ const Home = () => {
       <img src={logo_groww} className="company-logo" />
       <div className="main-content">
         <div className="sidebar-content">
-          <div className={`${activeMenu == "All Banks" ? "active_menu" : "menu"}`} onClick={() => setActiveMenu("All Banks")}>
+          <div className={`${activeMenu === "All Banks" ? "active_menu" : "menu"}`} onClick={() => setActiveMenu("All Banks")}>
             All Banks
           </div>
-          <div className={`${activeMenu == "Favorites" ? "active_menu" : "menu"}`} onClick={() => setActiveMenu("Favorites")}>
+          <div className={`${activeMenu === "Favorites" ? "active_menu" : "menu"}`} onClick={() => setActiveMenu("Favorites")}>
             Favorites
           </div>
         </div>
@@ -135,7 +133,7 @@ const Home = () => {
                 {cityOptions.map((option, index) => (
                   <MenuItem
                     key={option.key}
-                    selected={selectedCity == option.value}
+                    selected={selectedCity === option.value}
                     onClick={() => handleMenuItemClick(option.value, index)}
                   >
                     {option.text}
@@ -167,10 +165,10 @@ const Home = () => {
             </div>
           </div>
           {
-            activeMenu == "All Banks" ?
-              <AllBanks banks={filteredBanks} favoriteBanks={favoriteBanks} setFavoriteBanks={(banks) => setFavoriteBanks(banks)} />
+            activeMenu === "All Banks" ?
+              <AllBanks loading={loading} banks={filteredBanks} favoriteBanks={favoriteBanks} setFavoriteBanks={(banks) => setFavoriteBanks(banks)} />
               :
-              <Favorites banks={filteredFavoriteBanks} />
+              <Favorites banks={searchTextValue ? filteredFavoriteBanks : favoriteBanks} />
           }
         </div>
       </div>

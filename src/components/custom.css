@@ -1,9 +1,31 @@
-
 .table {
-    width: 100%;
-    font-style: "Roboto, system-ui";
+  width: 100%;
+  font-style: "Roboto, system-ui";
 }
 
 .fav-icon {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.bank-details {
+  position: absolute;
+  margin-top: 80px;
+  margin-left: 50px;
+  background-color: #F7F7F7;
+  width: 90%;
+}
+
+.all-link {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 50px;
+  color: blue;
+}
+
+.bank-name {
+  background-color: #00D09C;
+}
+
+.bank-content {
+  padding-left: 10px;
 }
