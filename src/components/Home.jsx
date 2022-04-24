@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import logo_groww from "../logo-groww.svg";
+import logo_groww from "../assets/logo-groww.svg";
 import "./Home.css";
 import AllBanks from "./AllBanks";
 import Favorites from "./Favorites";
 import { Menu, Button, MenuItem } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { ReactComponent as Search } from '../search.svg';
-import { ReactComponent as Close } from '../cancel-icon.svg';
+import { ReactComponent as Search } from '../assets/search.svg';
+import { ReactComponent as Close } from '../assets/cancel-icon.svg';
 
 const Home = () => {
   const [banks, setBanks] = useState([]);

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './custom.css';
 import DataTable from 'react-data-table-component';
-import { ReactComponent as Star } from '../grey-star.svg';
-import { ReactComponent as FavStar } from '../yellow-star.svg';
+import { ReactComponent as Star } from '../assets/grey-star.svg';
+import { ReactComponent as FavStar } from '../assets/yellow-star.svg';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
